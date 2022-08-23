@@ -1,0 +1,71 @@
+Desenvolva um código que simule uma eleição com três candidatos.
+- candidato_X => 889
+- candidato_Y => 847
+- candidato_Z => 515
+- branco => 0
+
+O código deve perguntar se deseja finalizar a votação depois do voto. 
+Caso o número do voto não corresponda a nenhum candidato ou seja branco, ele deve ser tratado como nulo. 
+Se for inserido um texto ao invés de número, o código deve retornar uma mensagem para votar novamente.
+
+Quando a votação for finalizada, o código deverá mostrar o vencedor, aquele com o maior número de votos e,
+também, a quantidade de votos de cada candidato, os brancos e nulos 
+
+
+resposta:
+
+
+
+from enum import IntEnum
+
+class Enumcand (IntEnum): 
+  CAND_X = 888 
+  CAND_Y = 477
+  CAND_Z = 515 
+  VOT_BRANC = 000
+
+print(''' Cadidato X: 888
+  Candidato Y: 477
+  Cadidato Z: 515
+  Voto em Branco: 000''')
+
+conta_y,conta_z,conta_x,conta_nulo = 0,0,0,0
+termin = False
+def voto():
+  voto = int(input())
+
+  return  voto
+while termin == False:
+  voto = int(input("Digite o numero do seu Candidato: "))   
+  try:  
+    if voto == Enumcand.CAND_X:
+      conta_x += 1
+    elif voto == Enumcand.CAND_Y:
+      conta_y += 1
+    elif voto == Enumcand.CAND_Z:
+      conta_z += 1
+    elif voto == Enumcand.VOT_BRANC or voto != Enumcand.CAND_X and Enumcand.CAND_Z and Enumcand.CAND_Y:
+      conta_nulo += 1
+  except:
+    print("Numero correspondente ao seu candidato!")
+  confirma = input("Para finalizar a votacao digit 's' para sim e 'n' para nao: ")
+  try:
+    if confirma == "s":
+      termin = True
+    elif confirma == "n":
+      print ("Continue votando!")
+  except:
+    print ("Digite o valor o correto")
+
+if conta_x > conta_y and conta_x > conta_z:
+   print ("O candidato X e o vencedor com: ", conta_x," votos ","e votos nulos: ", conta_nulo)    
+
+elif conta_y > conta_x and conta_y > conta_z:
+   print ("O candidato Y e o vencedor com: ", conta_y," votos ","e votos nulos: ", conta_nulo)    
+
+elif conta_z > conta_x and conta_z >conta_y:
+   print ("O candidato Z e o vencedor com: ", conta_z," votos ","e votos nulos: ", conta_nulo)
+    
+
+
+ 
