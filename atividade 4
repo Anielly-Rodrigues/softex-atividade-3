@@ -37,3 +37,4 @@ print ('''Escolha a opção:
 3 - Multiplição, 
 4 - Divisão''')
 calculo = calculadora(int(input("Digite o numero correspondete a operação: ")),float(input("Digite o primeiro valor: ")),float(input("Digite o segundo valor: ")))  
+print("Valor calculado: "+ str(calculo))
